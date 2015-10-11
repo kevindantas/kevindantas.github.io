@@ -1,0 +1,21 @@
+body {
+	background: #122844;
+	color: #fff;
+	padding: 50px;
+	font: 14px "EffraLight", Helvetica, Arial, sans-serif;
+	text-align: center;;
+}
+
+a {
+	color: #00B7FF;
+}
+
+img {
+	margin-top: 20vh;
+}
+
+h1 {
+	color: #FECC00;
+	font-weight: lighter;
+	font-size: 35px;
+}
