@@ -5,9 +5,66 @@ import logoKevin from './images/LogoKevin.svg';
 import './Layout.css';
 
 class App extends Component {
+
+  state = {
+    typedPhrase: '',
+    extraClasses: ''
+  }
+
+
+  /**
+   * Handle key press on component
+   * @param  {SyntheticEvent} e
+   */
+  handleKeyDown = (e) => {
+    let key = e.key.toLowerCase();
+
+    let harlemShake = 'do the harlem shake';
+    let kojimaCode = [
+        'ArrowUp',
+        'ArrowUp',
+        'ArrowDown',
+        'ArrowDown',
+        'ArrowLeft',
+        'ArrowRight',
+        'ArrowLeft',
+        'ArrowRight',
+        'B',
+        'A'
+      ].join('').toLowerCase();
+
+    let currentPhrase = this.state.typedPhrase+key;
+
+    if(harlemShake.indexOf(currentPhrase) !== 0 && kojimaCode.indexOf(currentPhrase) !== 0){
+      this.setState({ typedPhrase: '' })
+      return;
+    }
+
+    console.log(currentPhrase)
+
+    var newState = {
+      typedPhrase: currentPhrase
+    };
+    
+
+    if (currentPhrase == harlemShake) {
+      newState.extraClasses = 'DoTheHarlemShake'
+    } else if (currentPhrase == kojimaCode) {
+      newState.extraClasses = 'KojimaCode'
+    }
+
+    this.setState(newState);
+  };
+
+
+  doHarlemShake()  {
+
+  }
+
+
   render() {
     return (
-      <div className="Layout">
+      <div className={`Layout ${this.state.extraClasses}`} tabIndex={1} onKeyDown={this.handleKeyDown}>
         <header className="Layout-header">
           <nav>
             <Link href="/">
@@ -27,8 +84,6 @@ class App extends Component {
 
         { this.props.children }
 
-
-        
       </div>
     );
   }
