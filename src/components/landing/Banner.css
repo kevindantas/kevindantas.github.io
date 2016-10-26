@@ -1,0 +1,19 @@
+.Banner {
+	background: #002745;
+	height: 70vh;
+	display: flex;
+}
+
+.Banner-logo-wrapper {
+	margin: auto;
+	height: 300px;
+	width: 300px;
+	border: 3px dashed #fff;
+	padding: 50px;
+	border-radius: 1000px;
+	text-align: center;
+}
+
+.Banner img {
+	height: 100%;
+}
