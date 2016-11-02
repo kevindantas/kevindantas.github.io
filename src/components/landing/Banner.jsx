@@ -1,15 +1,11 @@
 import React, { Component } from 'react'
 import logoKevin from '../../images/LogoKevin.svg'
 import './Banner.css'
+import CanvasLines from './CanvasLines'
 
 
 export default class Banner extends Component {
 
-	componentDidMount() {
-		var lines = this.refs.canvasLines;
-		lines.width = window.innerWidth;
-		lines.height = window.innerHeight;
-	}
 
 	render() {
 		return (
@@ -17,8 +13,7 @@ export default class Banner extends Component {
 				<div className="Banner-logo-wrapper">
 					<img src={logoKevin} alt="Kevin Dantas" />
 				</div>
-
-				<canvas ref="canvasLines" id="CanvasLines"></canvas>
+				<CanvasLines />
 			</section>
 		);
 	}
