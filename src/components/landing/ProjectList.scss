@@ -1,0 +1,22 @@
+#ProjectList {
+	background: #F0C931;
+
+
+	h1 {
+		font-weight: 300;
+		font-size: 70px;
+		text-transform: uppercase;
+	}
+
+	.project-item {
+		figure {
+			overflow: hidden;
+			height: 600px;
+		}
+
+		img {
+			max-width: 30vw;
+		}
+	}
+
+}

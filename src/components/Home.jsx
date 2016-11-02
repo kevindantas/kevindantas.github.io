@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Banner from './landing/Banner'
+import ProjectList from './landing/ProjectList'
 
 export default class Home extends Component {
 
@@ -7,6 +8,8 @@ export default class Home extends Component {
 		return (
 			<div>
 				<Banner />
+
+				<ProjectList />
 			</div>
 		);
 	}
