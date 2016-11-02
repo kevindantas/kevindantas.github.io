@@ -1,6 +1,6 @@
 .Banner {
 	background: #002745;
-	height: 70vh;
+	height: 100vh;
 	display: flex;
 }
 
@@ -16,4 +16,10 @@
 
 .Banner img {
 	height: 100%;
+}
+
+.Banner canvas {
+	position: absolute;
+	top: 0;
+	left: 0;
 }
