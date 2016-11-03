@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Button from '../Button'
 import './ProjectList.scss'
+import ProjectItem from './ProjectItem';
 import diadedoar from '../../images/projects/diadedoar.jpg'
 
 
@@ -11,13 +12,11 @@ export default class ProjectList extends Component {
 				<h1>Projects</h1>
 
 				<div className="projects-carousel">
-					<div className="project-item">
-						<figure>
-							<img src={diadedoar} alt="Project Name"/>
-							<figcaption>
-								Dia de Doar
-							</figcaption>
-						</figure>
+					<div className="carousel-inner">
+						<ProjectItem image={diadedoar} name="Dia de Doar" />
+						<ProjectItem image={diadedoar} name="Dia de Doar" />
+						<ProjectItem image={diadedoar} name="Dia de Doar" />
+						<ProjectItem image={diadedoar} name="Dia de Doar" />
 					</div>
 				</div>
 
