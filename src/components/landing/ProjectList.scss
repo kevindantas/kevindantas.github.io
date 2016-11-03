@@ -1,15 +1,26 @@
 #ProjectList {
 	background: #F0C931;
 	position: relative;
+	z-index: 1;
 
-	&::before {
+	&::before, &::after {
 		content: '';
 		background: #F0C931;
 		width: 100%;
-		height: 90px;
+		height: 120px;
 		position: absolute;
 		left: 0;
-		top: -47px;
+		z-index: -1;
+	}
+
+
+	&::before {
+		top: -60px;
+		transform: skewY(3deg);
+	}
+
+	&::after {
+		bottom: -60px;
 		transform: skewY(3deg);
 	}
 
@@ -34,6 +45,8 @@
 		transform: rotateY(17deg);
 		display: flex;
 		flex-wrap: nowrap;
+		transition: transform 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+		will-change: transform;
 	}
 
 
@@ -41,15 +54,22 @@
 		text-align: center;
 		figure {
 			width: 30vw;
-			figcaption {
-				transform: translateY(50px);
-			}
+		}
+
+		figcaption {
+			transform: translateY(50px);
 		}
 
 		img {
 			width: 100%;
 			box-shadow: -30px 30px 25px rgba(0,0,0,.15);
 		}
+	}
+
+
+	.Button {
+		float: right;
+		margin-right: 40px;
 	}
 
 }

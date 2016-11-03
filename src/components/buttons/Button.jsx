@@ -8,14 +8,14 @@ const Button = (props) => {
 
   if(props.href) {
     return (
-      <a className="Button" href={props.href}>{ content }</a>
+      <a { ...props } className="Button" href={props.href}>{ content }</a>
     );
   }
 
 
 
   return (
-    <button className="Button">{ content }</button>
+    <button { ...props } className="Button">{ content }</button>
   )
 
 };
