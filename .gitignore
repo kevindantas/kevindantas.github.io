@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # dependencies
@@ -13,3 +14,7 @@ build
 .DS_Store
 .env
 npm-debug.log
+=======
+/node_modules
+/bower_components
+>>>>>>> eb870fa37e9b8ad634e93839eeda72665c0b4782
