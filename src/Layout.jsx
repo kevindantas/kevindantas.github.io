@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import logo from './logo.svg';
 import logoKevin from './images/LogoKevin.svg';
+// import HarlemShakeMusic from './sounds/harlem-shake.ogg';
 import './Layout.css';
 
 class App extends Component {
@@ -40,15 +41,14 @@ class App extends Component {
       return;
     }
 
-    console.log(currentPhrase)
-
     var newState = {
       typedPhrase: currentPhrase
     };
     
 
     if (currentPhrase == harlemShake) {
-      newState.extraClasses = 'DoTheHarlemShake'
+      newState.extraClasses = 'DoTheHarlemShake';
+      this.doHarlemShake();
     } else if (currentPhrase == kojimaCode) {
       newState.extraClasses = 'KojimaCode'
     }
