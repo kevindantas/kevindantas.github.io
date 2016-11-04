@@ -16,17 +16,20 @@ export default class ProjectList extends Component {
 
 
 	handleForwards() {
+		// let diff = this.state.translateX < 10 ? 0 : 65;
+		let diff = window.innerWidth * 0.65;
 		this.setState({
-			translateX: this.state.translateX - 65,
-			scale: this.state.scale + 0.07
+			translateX: this.state.translateX - diff,
+			scale: this.state.scale + (diff / 9400)
 		})
 	}
 
 
 	handleBackwards() {
+		let diff = this.state.translateX > 50 ? 0 : window.innerWidth * 0.65;
 		this.setState({
-			translateX: this.state.translateX + 65,
-			scale: this.state.scale - 0.07
+			translateX: this.state.translateX + diff,
+			scale: this.state.scale - (diff / 9400)
 		})
 	}
 
@@ -44,7 +47,7 @@ export default class ProjectList extends Component {
 
 
 		var carouselStyle = {
-			transform: `translateX(${this.state.translateX}vw) scale(${this.state.scale}) rotateY(17deg)`
+			transform: `translateX(${this.state.translateX}px) scale(${this.state.scale}) rotateY(17deg)`
 		};
 
 
