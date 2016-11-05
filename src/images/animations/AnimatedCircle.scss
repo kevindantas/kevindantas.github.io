@@ -1,42 +1,74 @@
 $easing: cubic-bezier(0.29, 0.84, 0.38, 1.05);
 
-.Animated{
-	animation: ScaleSVG 0.9s forwards $easing;
+.Animated {
 	padding: 1px;
+	transform-origin: center;
 
-	circle, path {
-		stroke-width: 0.3px;
+	&._Circle { animation: ScaleSVG 4s forwards $easing; }
+	&._Rect   { animation: ScaleRectSVG 7s forwards $easing; }
+	circle, path, rect {
 		transform-origin: center;
-		animation: ScaleShape 0.9s forwards $easing;
+		animation: ScaleShape 1.7s forwards $easing;
+		stroke-linecap: round;
+		stroke-width: 0.25;
+		stroke-dasharray: .7 1;
+	}
+
+	&._Rect rect {
+		stroke-width: 0.17;
+		stroke-dasharray: .33 .6;
+		stroke-dashoffset: .1;
+	}
+
+	&._Rect g {
+		animation: RotateRect 7s infinite linear 2s;
+	}
+	
+	g {
+		animation: Rotate 7s infinite linear;
+		transform-origin: center;
 	}
 
 
-	&._Circle {
-		.yellow {
-			transform: scale(0);
-		}
-
-		.AnimateDash {
-			opacity: 0;
-			animation: AnimateDash 0.9s forwards $easing 2s;
-		}
-
-		.blue {
-			animation-delay: 1s;
-			transform: scale(0);
-		}
+	.yellow {
+		animation: ScaleShapeYellow 1.7s forwards $easing;
+		transform: scale(0);
 	}
+
+
+	.blue {
+		animation-delay: 0.8s;
+		animation-duration: 1s;
+		transform: scale(0);
+	}
+	
 }
 
 
 @keyframes ScaleSVG {
-	0% {
-		transform: scale(0);
-	}
+	0% 	 { transform: scale(0); }
+	20%  { transform: scale(25); }
+	85%  { transform: scale(25); }
+	100% { transform: scale(0); }
+}
 
-	100% {
-		transform: scale(20);
-	}
+@keyframes ScaleRectSVG {
+	0% 	 { transform: scale(0); }
+	20%  { transform: scale(40); }
+	85%  { transform: scale(40); }
+	100% { transform: scale(0); }
+}
+
+@keyframes Rotate {
+	0%   { transform: rotate(0); }
+	100% { transform: rotate(360deg); }
+}
+
+@keyframes RotateRect {
+	0%  { transform: rotate(0); }
+	5%  { transform: rotate(45deg); }
+	40% { transform: rotate(45deg); }
+	45% { transform: rotate(0); }
 }
 
 @keyframes ScaleShape {
@@ -44,8 +76,33 @@ $easing: cubic-bezier(0.29, 0.84, 0.38, 1.05);
 		transform: scale(0);
 	}
 
+	80% {
+		transform: scale(1);
+		// stroke-dasharray: 0 0
+	}
+
 	100% {
 		transform: scale(1);
+		// stroke-dasharray: 0.7px 1.2px;
+	}
+}
+
+
+
+@keyframes ScaleShapeYellow {
+	0% {
+		transform: scale(0);
+	}
+
+	80% {
+		transform: scale(1);
+		fill: #F0C931;
+	}
+
+	100% {
+		transform: scale(1);
+		fill: transparent;
+		// stroke-dasharray: 0.7px 1.2px;
 	}
 }
 
@@ -57,7 +114,6 @@ $easing: cubic-bezier(0.29, 0.84, 0.38, 1.05);
 	}
 
 	100% {
-		// fill: transparent;
 		transform: scale(1);
 		opacity: 1;
 		stroke-linecap: round;
