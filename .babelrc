@@ -1,0 +1,9 @@
+{
+  "plugins": [
+    "transform-decorators",
+    "transform-class-properties",
+    "transform-export-extensions",
+    ["transform-object-rest-spread", { "useBuiltIns": true }],
+    ["transform-react-jsx", { "pragma": "h" }]
+  ]
+}
