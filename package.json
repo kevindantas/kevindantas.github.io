@@ -10,8 +10,7 @@
     "start": "node scripts/start.js"
   },
   "eslintConfig": {
-    "extends": "airbnb",
-    "experimentalDecorators": true
+    "extends": "airbnb"
   },
   "dependencies": {
     "babel-core": "^6.26.0",
