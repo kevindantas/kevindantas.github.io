@@ -5,20 +5,34 @@ const WebpackDevServer = require('webpack-dev-server');
 const paths = require('../config/paths');
 const webpackConfig = require('../config/webpack.config.dev');
 
-const compiler = Webpack(webpackConfig);
-
 function clearConsole() {
-  return process.stdout.write('\033c');
+  process.stdout.write(
+    process.platform === 'win32' ? '\x1Bc' : '\x1B[2J\x1B[3J\x1B[H'
+  );
 }
 
-compiler.plugin('done', (stats) => {
-  clearConsole();
-  console.log('Server running');
+function setupCompiler(port) {
+  const compiler = Webpack(webpackConfig);
+  compiler.plugin('done', stats => {
+    clearConsole();
 
-})
+    if(stats.compilation.errors.length > 0) {
+      console.log(stats.compilation.errors);
+      return;
+    }
+    
+    console.log(chalk.cyan('Server running on port:'), chalk.green(port));
+  });
+
+  compiler.plugin('invalid', () => {
+    clearConsole();
+    console.log('Compiling...');
+  });
+
+  return compiler;
+}
 
 const DEFAULT_PORT = process.env.PORT || 3000;
-
 
 /**
  * 
@@ -27,6 +41,7 @@ const DEFAULT_PORT = process.env.PORT || 3000;
  * @param {String} protocol 
  */
 function runDevServer(host, port, protocol = 'http') {
+  const compiler = setupCompiler(port);
   const devServer = new WebpackDevServer(compiler, {
     /**
      * It will still show compile warnings and errors with this setting.
@@ -36,33 +51,33 @@ function runDevServer(host, port, protocol = 'http') {
     contentBase: paths.appPublic,
     // Enable hot reload
     hot: true,
-    // Open the bvrowser
+    // Open the browser
     open: true,
+    quiet: true,
+    publicPath: webpackConfig.output.publicPath,
+    watchContentBase: true,
     watchOptions: {
       ignored: /node_modules/,
     },
   });
 
   devServer.listen(port, (err, res) => {
-    if(err) {
+    if (err) {
       return console.log(err);
     }
 
     console.log(chalk.cyan('Starting the development server...'));
-  })
+  });
 }
-  
-
 
 detect(DEFAULT_PORT).then(port => {
   if (DEFAULT_PORT !== port) {
-    console.log(`
-      Something is already running on port ${DEFAULT_PORT}.
-      \n\nThe server will run on port ${port} instead.
-    `);    
+    console.log(
+      `Something is already running on port ${DEFAULT_PORT}.
+      The server will run on port ${port} instead.`
+    );
   }
 
-  var host = process.env.HOST || 'localhost';
-  
+  const host = process.env.HOST || 'localhost';
   runDevServer(host, port);
 });

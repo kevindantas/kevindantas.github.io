@@ -1,8 +1,17 @@
 import { h, render } from 'preact';
+import App from './App';
 
+const renderApp = Component => {
+  render(<Component />, document.body);
+};
 
-render((
-  <div>
-    <h1>Yo</h1>
-  </div>
-), document.body);
+renderApp(App);
+
+if (module.hot) {
+  module.hot.accept();
+  
+  // Remove HMR side effects (duplicate App)
+  module.hot.dispose(() => {
+    document.querySelector('#App').remove();
+  });
+}
