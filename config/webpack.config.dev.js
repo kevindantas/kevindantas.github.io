@@ -20,6 +20,14 @@ module.exports = {
         include: paths.appSrc,
         loader: 'babel-loader',
       },
+      {
+        test: /\.(css|scss)$/,
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
+          { loader: 'sass-loader' },
+        ],
+      },
     ],
   },
   plugins: [
