@@ -1,0 +1,20 @@
+body {
+  background: #002745;
+  color: #fff;
+}
+
+#App {
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  height: 100%;
+
+  .box {
+    text-align: center;
+    margin: auto;
+
+    svg {
+      max-height: 200px;
+      margin-bottom: 3rem;
+    }
+  }
+}

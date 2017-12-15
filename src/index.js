@@ -1,15 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router'
-import Layout from './Layout';
-import Home from './components/Home'
-import './index.css';
+import { h, render } from 'preact';
+import App from './App';
 
-ReactDOM.render(
-  <Router history={browserHistory}>
-  	<Route path="/" component={Layout}>
-  		<IndexRoute component={Home} />
-  	</Route>
-  </Router>,
-  document.getElementById('root')
-);
+const renderApp = Component => {
+  render(<Component />, document.body);
+};
+
+renderApp(App);
+
+if (module.hot) {
+  module.hot.accept();
+  
+  // Remove HMR side effects (duplicate App)
+  module.hot.dispose(() => {
+    document.querySelector('#App').remove();
+  });
+}
