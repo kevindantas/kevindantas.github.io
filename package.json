@@ -8,8 +8,9 @@
   "private": true,
   "scripts": {
     "start": "node scripts/start.js",
-    "test": "jest",
     "lint": "eslint src",
+    "pretest": "yarn lint",
+    "test": "jest",
     "build": "node scripts/build.js"
   },
   "eslintIgnore": ["**/*.spec.js", "__tests__/**"],
