@@ -1,15 +1,11 @@
-import { h, Component } from 'preact';
+import { h } from 'preact';
 
-class Navbar extends Component {
-  render() {
-    return (
-      <nav>
-        <ul>
-          <li>oi  </li>
-        </ul>
-      </nav>
-    )
-  }
-}
+const Navbar = () => (
+  <nav>
+    <ul>
+      <li>oi </li>
+    </ul>
+  </nav>
+);
 
 export default Navbar;
