@@ -13,12 +13,16 @@
     "test": "jest",
     "build": "node scripts/build.js"
   },
-  "eslintIgnore": ["**/*.spec.js", "__tests__/**"],
+  "eslintIgnore": [
+    "**/*.spec.js",
+    "__tests__/**"
+  ],
   "dependencies": {
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.1.2",
     "babel-loader": "^7.1.2",
     "babel-minify-webpack-plugin": "^0.2.0",
+    "babel-plugin-emotion": "^8.0.12",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-decorators": "^6.24.1",
     "babel-plugin-transform-export-extensions": "^6.22.0",
@@ -29,6 +33,7 @@
     "chai": "^4.1.2",
     "chalk": "^2.3.0",
     "css-loader": "^0.28.7",
+    "emotion": "^8.0.12",
     "eslint": "^4.14.0",
     "eslint-loader": "^1.9.0",
     "eslint-plugin-import": "^2.8.0",
@@ -39,6 +44,7 @@
     "jest": "^22.0.3",
     "node-sass": "^4.7.1",
     "preact": "^8.2.6",
+    "preact-emotion": "^8.0.12",
     "preact-jsx-chai": "^2.2.1",
     "rimraf": "^2.6.2",
     "sass-loader": "^6.0.6",
