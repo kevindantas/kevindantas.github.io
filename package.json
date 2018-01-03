@@ -11,12 +11,18 @@
     "lint": "eslint src",
     "pretest": "yarn lint",
     "test": "jest",
+    "test:watch": "jest --watch",
     "build": "node scripts/build.js"
   },
   "eslintIgnore": [
     "**/*.spec.js",
     "__tests__/**"
   ],
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(svg|png|jpg|gif|css)$": "<rootDir>/config/emptyModule.js"
+    }
+  },
   "dependencies": {
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.1.2",
