@@ -1,5 +1,6 @@
 import { h, render } from 'preact';
 import App from './App';
+import './styles/global';
 
 const renderApp = (Component) => {
   render(<Component />, document.body);

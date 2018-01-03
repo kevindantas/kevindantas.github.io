@@ -5,7 +5,7 @@ const paths = require('./paths');
 module.exports = {
   entry: [
     paths.appIndexJs,
-    require.resolve('webpack-dev-server/client') + '?/',
+    `${require.resolve('webpack-dev-server/client')}?/`,
     require.resolve('webpack/hot/dev-server'),
   ],
   output: {
@@ -36,6 +36,18 @@ module.exports = {
           { loader: 'css-loader' },
           { loader: 'sass-loader' },
         ],
+      },
+      {
+        test: /\.svg$/,
+        use: [{
+          loader: 'svg-url-loader',
+        }],
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [{
+          loader: 'url-loader',
+        }],
       },
     ],
   },
