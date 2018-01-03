@@ -10,6 +10,6 @@ injectGlobal`
   body {
     background: #002745;
     color: #fff;
-    font-family: 'Helvetica', sans-serif;
+    font-family: 'effra', 'Helvetica', sans-serif;
   }
 `;
