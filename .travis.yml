@@ -8,3 +8,15 @@ branches:
     - staging
 
 cache: yarn
+
+script:
+  - yarn test
+  - yarn build
+
+deploy:
+  - provider: pages
+    skip_cleanup: true
+    gihutb_token: $GITHUB_TOKEN
+    local_dir: build
+    on:
+      branch: master
