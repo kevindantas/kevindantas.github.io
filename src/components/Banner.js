@@ -15,6 +15,12 @@ const Wrapper = styled.section`
   background: linear-gradient(45deg, transparent, transparent 49%, ${lineColor} 50%, transparent 51%, transparent),
               linear-gradient(-45deg, transparent, transparent 49%, ${lineColor} 50%, transparent 51%, transparent);
   background-size: ${patternSize} ${patternSize};
+  max-width: 100vw;
+  overflow: hidden;
+
+  @media(max-width: 480px) {
+    align-items: flex-start;
+  }
 `;
 
 const Circle = styled.div`
@@ -27,6 +33,19 @@ const Circle = styled.div`
   box-shadow: 1px 5px 25px rgba(0, 0, 0, 0.15);
   transform-style: preserve-3d;
   ${flexCenter};
+
+  @media(max-width: 480px) {
+    margin-top: 7rem;
+    width: 250px;
+    height: 250px;
+  }
+
+  @media(max-width: 400px) {
+    margin-top: 7rem;
+    width: 220px;
+    height: 220px;
+  }
+
 
   &:hover {
     box-shadow: 1px 5px 40px 2px rgba(0, 0, 0, 0.25);
